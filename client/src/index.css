@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(210, 40%, 98%);
+  --primary-foreground: hsl(222.2, 84%, 4.9%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* BlackStudio Elegant Colors */
+  --background-primary: hsl(222.2, 84%, 4.9%);
+  --background-secondary: hsl(220, 13%, 13%);
+  --background-tertiary: hsl(217, 19%, 18%);
+  --text-primary: hsl(210, 40%, 98%);
+  --text-secondary: hsl(215, 20.2%, 65.1%);
+  --accent-primary: hsl(210, 40%, 98%);
+  --accent-secondary: hsl(215, 28%, 17%);
+}
+
+.dark {
+  --background: hsl(222.2, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 19%, 18%);
+  --muted-foreground: hsl(215, 20.2%, 65.1%);
+  --popover: hsl(222.2, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222.2, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 19%, 18%);
+  --input: hsl(217, 19%, 18%);
+  --primary: hsl(210, 40%, 98%);
+  --primary-foreground: hsl(222.2, 84%, 4.9%);
+  --secondary: hsl(217, 19%, 18%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217, 19%, 18%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(212.7, 26.8%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-montserrat antialiased bg-background text-foreground overflow-hidden;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+  }
+}
+
+@layer utilities {
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .bg-primary {
+    background-color: var(--background-primary);
+  }
+  
+  .bg-secondary {
+    background-color: var(--background-secondary);
+  }
+  
+  .bg-tertiary {
+    background-color: var(--background-tertiary);
+  }
+  
+  .text-primary {
+    color: var(--text-primary);
+  }
+  
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  
+  .text-accent {
+    color: var(--accent-primary);
+  }
+  
+  .bg-accent {
+    background-color: var(--accent-primary);
+  }
+  
+  .border-accent {
+    border-color: var(--accent-primary);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Navigation dots pulse animations */
+@keyframes pulse-blue {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+  }
+}
+
+@keyframes pulse-orange {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+  }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(34, 211, 238, 0);
+  }
+}
+
+@keyframes pulse-purple {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(168, 85, 247, 0);
+  }
+}
+
+@keyframes pulse-yellow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(250, 204, 21, 0);
+  }
+}
+
+.animate-pulse-blue {
+  animation: pulse-blue 2s infinite;
+}
+
+.animate-pulse-orange {
+  animation: pulse-orange 2s infinite;
+}
+
+.animate-pulse-cyan {
+  animation: pulse-cyan 2s infinite;
+}
+
+.animate-pulse-purple {
+  animation: pulse-purple 2s infinite;
+}
+
+.animate-pulse-yellow {
+  animation: pulse-yellow 2s infinite;
+}
+
+/* Custom styles - scroll indicator now handled inline */
+
+.slide-transition {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Mobile-first responsive utilities for consistent layout */
+@media (max-width: 393px) {
+  /* Samsung S25 and smaller phones */
+  .mobile-container {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  
+  .mobile-text-base {
+    font-size: clamp(0.75rem, 4vw, 1rem);
+  }
+  
+  .mobile-text-lg {
+    font-size: clamp(1rem, 5vw, 1.25rem);
+  }
+  
+  .mobile-text-xl {
+    font-size: clamp(1.25rem, 6vw, 1.5rem);
+  }
+  
+  .mobile-text-2xl {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+  
+  .mobile-text-3xl {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
+  .mobile-text-4xl {
+    font-size: clamp(2.5rem, 9vw, 3rem);
+  }
+}
+
+@media (min-width: 394px) and (max-width: 480px) {
+  /* Larger phones */
+  .mobile-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+
+/* Consistent full screen layout - all screen sizes */
+@media (max-height: 667px) {
+  .short-screen-container {
+    padding-top: 60px !important; /* Consistent navbar clearance */  
+    padding-bottom: 20px !important;
+    padding-left: 16px !important; /* Consistent left margin */
+    padding-right: 16px !important; /* Consistent right margin */
+    min-height: calc(100vh - 80px) !important; /* Full screen minus navbar */
+    height: calc(100vh - 80px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+  }
+  
+  .short-screen-spacing {
+    margin-bottom: 8px !important;
+  }
+  
+  .short-screen-title {
+    font-size: clamp(1.2rem, 5vw, 2rem) !important;
+    margin-bottom: 6px !important;
+    line-height: 1.1 !important;
+  }
+  
+  .short-screen-text {
+    font-size: clamp(0.75rem, 3vw, 0.875rem) !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .short-screen-grid {
+    gap: 4px !important;
+    max-height: calc(100vh - 180px) !important;
+    width: 100% !important;
+  }
+  
+  .short-screen-services {
+    gap: 6px !important;
+  }
+  
+  .short-screen-stats {
+    margin-bottom: 6px !important;
+  }
+  
+  .short-screen-header {
+    margin-bottom: 6px !important;
+  }
+  
+  /* Consistent center alignment */
+  .short-screen-center {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  /* Center alignment for about title */
+  .short-screen-about-title h2 {
+    text-align: center !important;
+  }
+  
+  .short-screen-about-maps {
+    margin-top: 8px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .short-screen-about-map-container {
+    height: 160px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .short-screen-about-address {
+    font-size: clamp(0.55rem, 2vw, 0.65rem) !important;
+    line-height: 1.1 !important;
+    margin-top: 4px !important;
+    padding: 8px 12px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .short-screen-about-title {
+    margin-bottom: 6px !important;
+  }
+  
+  .short-screen-about-content {
+    gap: 8px !important;
+  }
+}
+
+/* Gradient animation effects */
+@keyframes gradient-shift-blue-purple {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-shift-cyan-green {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-shift-yellow-orange {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-shift-purple-pink {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-shift-orange-pink {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-shift-blue-cyan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Gradient animation classes */
+.animate-gradient-blue-purple {
+  background: linear-gradient(90deg, #60a5fa, #a855f7, #3b82f6, #8b5cf6);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift-blue-purple 3s ease-in-out infinite;
+}
+
+.animate-gradient-cyan-green {
+  background: linear-gradient(90deg, #22d3ee, #10b981, #4ade80, #06b6d4);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift-cyan-green 3s ease-in-out infinite;
+}
+
+.animate-gradient-yellow-orange {
+  background: linear-gradient(90deg, #facc15, #f97316, #eab308, #fb923c);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift-yellow-orange 3s ease-in-out infinite;
+}
+
+.animate-gradient-purple-pink {
+  background: linear-gradient(90deg, #a78bfa, #f472b6, #8b5cf6, #ec4899);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift-purple-pink 3s ease-in-out infinite;
+}
+
+.animate-gradient-orange-pink {
+  background: linear-gradient(90deg, #fb923c, #ec4899, #f97316, #f472b6);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift-orange-pink 3s ease-in-out infinite;
+}
+
+.animate-gradient-blue-cyan {
+  background: linear-gradient(90deg, #3b82f6, #22d3ee, #1d4ed8, #06b6d4);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift-blue-cyan 3s ease-in-out infinite;
+}
+
+/* Icon gradient animations */
+@keyframes icon-gradient-pink {
+  0% {
+    background: linear-gradient(135deg, #f472b6, #ec4899, #db2777);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes icon-gradient-blue-purple {
+  0% {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #6366f1);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes icon-gradient-cyan {
+  0% {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4, #0891b2);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes icon-gradient-orange-red {
+  0% {
+    background: linear-gradient(135deg, #fb923c, #f97316, #ef4444);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-icon-gradient-pink {
+  animation: icon-gradient-pink 4s ease-in-out infinite;
+}
+
+.animate-icon-gradient-blue-purple {
+  animation: icon-gradient-blue-purple 4s ease-in-out infinite;
+}
+
+.animate-icon-gradient-cyan {
+  animation: icon-gradient-cyan 4s ease-in-out infinite;
+}
+
+.animate-icon-gradient-orange-red {
+  animation: icon-gradient-orange-red 4s ease-in-out infinite;
+}
+
+/* WhatsApp button animations */
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+}
+
+@keyframes whatsapp-glow {
+  0% {
+    background: linear-gradient(135deg, #25d366, #128c7e, #25d366);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes whatsapp-flicker {
+  0%, 100% { opacity: 1; }
+  25% { opacity: 0.7; }
+  50% { opacity: 1; }
+  75% { opacity: 0.8; }
+}
+
+.whatsapp-highlight {
+  animation: whatsapp-pulse 2s ease-in-out infinite, whatsapp-glow 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #25d366, #128c7e, #25d366);
+  background-size: 200% 200%;
+  border: 2px solid rgba(34, 197, 94, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsapp-highlight:hover {
+  animation: whatsapp-flicker 0.5s ease-in-out infinite;
+}
+
+.whatsapp-highlight::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(50%) translateY(50%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+.slide-transition {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Minimal scroll indicator */
+.scroll-indicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+/* Hide scrollbar */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
