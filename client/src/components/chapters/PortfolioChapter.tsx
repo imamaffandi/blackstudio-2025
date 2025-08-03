@@ -4,53 +4,45 @@ import { X, Play } from "lucide-react";
 
 const portfolioItems = [
   {
-    title: "Helwa Digital Ads",
-    image: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    category: "Digital Campaign",
-    videoId: "dQw4w9WgXcQ"
-  },
-  {
-    title: "TVC Production Madmoiselle",
-    image: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+    title: "COMPANY PROFILE PT MAKMUR BERKAH AMANDA",
     category: "Video Production",
-    videoId: "ScMzIvxBSi4"
+    videoId: "lnMqEmce-wc",
   },
   {
-    title: "Digital Ads Goprek Rahayu",
-    image: "https://img.youtube.com/vi/M7lc1UVf-VE/maxresdefault.jpg",
-    category: "Motion Graphics",
-    videoId: "M7lc1UVf-VE"
+    title: "COMPANY PROFILE ADMEDIKA",
+    category: "Video Production",
+    videoId: "4yzYw9hmZ9Y",
   },
   {
-    title: "Wix - Liquid Ads",
-    image: "https://img.youtube.com/vi/JGwWNGJdvx8/maxresdefault.jpg",
-    category: "Photography",
-    videoId: "JGwWNGJdvx8"
+    title: "TUTORIAL QRIS TAP",
+    category: "Video Production",
+    videoId: "_q1tDspTp_M",
   },
   {
-    title: "Shell Fit Growth",
-    image: "https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg",
-    category: "Event Documentation",
-    videoId: "9bZkp7q19f0"
+    title: "Digital Ads Book Cabin Call Center",
+    category: "Video Production",
+    videoId: "IWDNJrSd0Yo",
   },
   {
-    title: "Extra Joss Shake",
-    image: "https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg",
-    category: "Commercial",
-    videoId: "kJQP7kiw5Fk"
+    title: "PT. Garuda Yamato Steel (GYS)",
+    category: "Video Production",
+    videoId: "IAG684g8Tv0",
   },
   {
-    title: "Brand Identity Design",
-    image: "https://img.youtube.com/vi/YQHsXMglC9A/maxresdefault.jpg",
-    category: "Branding",
-    videoId: "YQHsXMglC9A"
+    title: "DOKUMENTER BISNIS PARIVARTANA RASA",
+    category: "Video Production",
+    videoId: "2dRLw5zRaTI",
   },
   {
-    title: "Social Media Campaign",
-    image: "https://img.youtube.com/vi/oHg5SJYRHA0/maxresdefault.jpg",
-    category: "Digital Marketing",
-    videoId: "oHg5SJYRHA0"
-  }
+    title: "PIS VALUES DAY 2024",
+    category: "Video Documentary",
+    videoId: "b1aJPUzpBgQ",
+  },
+  {
+    title: "Kemakmuran Semesta - Film Dokumenter 15 Tahun Bantengan Nuswantara",
+    category: "Video Production",
+    videoId: "PnHfKOg3fI0",
+  },
 ];
 
 export function PortfolioChapter() {
@@ -58,9 +50,9 @@ export function PortfolioChapter() {
   const [selectedTitle, setSelectedTitle] = useState<string>("");
 
   return (
-    <motion.section 
-      className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-b from-slate-700 via-cyan-950/25 to-slate-700" 
-      style={{ aspectRatio: '16/9' }} 
+    <motion.section
+      className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-b from-slate-700 via-cyan-950/25 to-slate-700"
+      style={{ aspectRatio: "16/9" }}
       data-section="portfolio"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -68,7 +60,7 @@ export function PortfolioChapter() {
     >
       <div className="max-w-7xl mobile-container px-4 s25:px-6 md:px-8 w-full h-full flex flex-col justify-center pt-12 s25:pt-16 md:pt-20 short-screen-container short-screen-center">
         <div className="text-center mb-6 short-screen-header">
-          <motion.h2 
+          <motion.h2
             className="mobile-text-3xl s25:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 s25:mb-4 leading-tight short-screen-title"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -77,12 +69,10 @@ export function PortfolioChapter() {
             viewport={{ once: false }}
           >
             <span className="block text-white">OUR CREATIVE </span>
-            <span className="animate-gradient-cyan-green font-bold">
-              MAGIC
-            </span>
+            <span className="animate-gradient-cyan-green font-bold">MAGIC</span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="mobile-text-base s25:text-base text-gray-300 max-w-2xl mx-auto mb-6 s25:mb-8 font-light short-screen-text short-screen-spacing"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -93,7 +83,7 @@ export function PortfolioChapter() {
             A glimpse into the creative magic we create
           </motion.p>
         </div>
-        
+
         {/* Portfolio Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 flex-1 max-h-[450px] short-screen-grid">
           {portfolioItems.map((item, index) => (
@@ -111,24 +101,31 @@ export function PortfolioChapter() {
                 setSelectedTitle(item.title);
               }}
             >
-              <div className="aspect-video overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                <img 
-                  src={item.image} 
+              <div
+                className="aspect-video overflow-hidden"
+                style={{ aspectRatio: "16/9" }}
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
+
                 {/* Hover Overlay with View Project */}
                 <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center">
                     <Play className="w-12 h-12 text-white mb-2 mx-auto" />
-                    <span className="text-white font-semibold text-lg">View Project</span>
+                    <span className="text-white font-semibold text-lg">
+                      View Project
+                    </span>
                   </div>
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3">
-                <h3 className="text-white font-bold text-sm mb-1">{item.title}</h3>
+                <h3 className="text-white font-bold text-sm mb-1">
+                  {item.title}
+                </h3>
                 <p className="text-gray-300 text-xs">{item.category}</p>
               </div>
             </motion.div>
@@ -172,12 +169,13 @@ export function PortfolioChapter() {
 
             {/* Video Title */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 md:p-4 pointer-events-none">
-              <h3 className="text-white font-bold text-sm md:text-lg">{selectedTitle}</h3>
+              <h3 className="text-white font-bold text-sm md:text-lg">
+                {selectedTitle}
+              </h3>
             </div>
           </motion.div>
         </div>
       )}
-
     </motion.section>
   );
 }

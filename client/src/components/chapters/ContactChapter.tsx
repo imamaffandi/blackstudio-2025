@@ -1,85 +1,33 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { insertContactSchema } from "@shared/schema";
-import type { InsertContact } from "@shared/schema";
-import { Instagram, Youtube, Linkedin, Mail, Clock, Users, Eye } from "lucide-react";
+import {
+  Instagram,
+  Youtube,
+  Linkedin,
+  Mail,
+  Clock,
+  Users,
+  Eye,
+} from "lucide-react";
 import { FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 export function ContactChapter() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const { toast } = useToast();
-
   // Real-time analytics state
   const [analytics, setAnalytics] = useState({
     visitors: 0,
-    lastVisit: '',
-    activeUsers: 0
+    lastVisit: "",
+    activeUsers: 0,
   });
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", message: "" });
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const whatsappMutation = useMutation({
-    mutationFn: async (message: string) => {
-      const response = await fetch("/api/whatsapp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
-      });
-      return response.json();
-    },
-    onSuccess: (data: { url: string }) => {
-      window.open(data.url, "_blank");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const validatedData = insertContactSchema.parse(formData);
-      contactMutation.mutate(validatedData);
-    } catch (error) {
-      toast({
-        title: "Validation Error",
-        description: "Please fill in all required fields correctly.",
-        variant: "destructive",
-      });
-    }
-  };
 
   const handleWhatsApp = () => {
     const message = `Hello BlackStudio.id! I'm interested in your creative services.`;
-    whatsappMutation.mutate(message);
+    window.open(
+      `https://api.whatsapp.com/send?phone=628113377793&text=${encodeURIComponent(
+        message
+      )}`,
+      "_blank"
+    );
   };
 
   // Simulate real-time analytics updates
@@ -88,26 +36,26 @@ export function ContactChapter() {
     const startTime = Date.now();
     const baseVisitors = 1247;
     const baseActiveUsers = 12;
-    
+
     const updateAnalytics = () => {
       const now = new Date();
       const elapsed = Date.now() - startTime;
-      
+
       // Simulate visitor count incrementing slowly
       const newVisitors = baseVisitors + Math.floor(elapsed / 30000); // +1 every 30 seconds
-      
+
       // Simulate active users fluctuating
       const activeVariation = Math.floor(Math.sin(elapsed / 5000) * 3);
       const newActiveUsers = Math.max(1, baseActiveUsers + activeVariation);
-      
+
       setAnalytics({
         visitors: newVisitors,
-        lastVisit: now.toLocaleTimeString('en-US', { 
-          hour12: false, 
-          hour: '2-digit', 
-          minute: '2-digit' 
+        lastVisit: now.toLocaleTimeString("en-US", {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
         }),
-        activeUsers: newActiveUsers
+        activeUsers: newActiveUsers,
       });
     };
 
@@ -118,9 +66,9 @@ export function ContactChapter() {
   }, []);
 
   return (
-    <motion.section 
-      className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-b from-slate-800 via-purple-950/25 to-slate-900" 
-      style={{ aspectRatio: '16/9' }}
+    <motion.section
+      className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-b from-slate-800 via-purple-950/25 to-slate-900"
+      style={{ aspectRatio: "16/9" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -128,7 +76,7 @@ export function ContactChapter() {
       <div className="max-w-4xl mx-auto mobile-container px-4 s25:px-6 md:px-8 w-full h-full flex flex-col justify-center pt-12 s25:pt-16 md:pt-20 short-screen-container short-screen-center">
         {/* Header */}
         <div className="text-center mb-12 short-screen-header">
-          <motion.h2 
+          <motion.h2
             className="mobile-text-3xl s25:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 s25:mb-6 leading-tight short-screen-title"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -141,8 +89,8 @@ export function ContactChapter() {
               TOGETHER
             </span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="mobile-text-base s25:text-base text-gray-300 max-w-2xl mx-auto mb-6 s25:mb-8 font-light short-screen-text short-screen-spacing"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -150,7 +98,8 @@ export function ContactChapter() {
             transition={{ duration: 0.4 }}
             viewport={{ once: false }}
           >
-            Ready to bring your creative vision to life? Get in touch and let's make something amazing.
+            Ready to bring your creative vision to life? Get in touch and let's
+            make something amazing.
           </motion.p>
         </div>
 
@@ -163,15 +112,15 @@ export function ContactChapter() {
             transition={{ duration: 0.4 }}
             viewport={{ once: false }}
           >
-            <Button 
+            <Button
               className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-600 text-white px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 w-64"
-              onClick={() => window.open('mailto:blackstudio.id@gmail.com')}
+              onClick={() => window.open("mailto:blackstudio.id@gmail.com")}
             >
               <Mail className="w-4 h-4 mr-2" />
               blackstudio.id@gmail.com
             </Button>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -179,13 +128,12 @@ export function ContactChapter() {
             transition={{ duration: 0.4 }}
             viewport={{ once: false }}
           >
-            <Button 
+            <Button
               onClick={handleWhatsApp}
               className="whatsapp-highlight text-white px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 w-64 relative z-10"
-              disabled={whatsappMutation.isPending}
             >
               <FaWhatsapp className="w-4 h-4 mr-2" />
-              {whatsappMutation.isPending ? "Opening..." : "+628113377793"}
+              +628113377793
             </Button>
           </motion.div>
         </div>
@@ -206,9 +154,9 @@ export function ContactChapter() {
           >
             <Instagram className="w-6 h-6 text-white" />
           </motion.a>
-          
+
           <motion.a
-            href="https://youtube.com/@blackstudio.id"
+            href="https://www.youtube.com/@blackstudioid"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-red-500 hover:to-red-600 transition-all duration-300"
@@ -223,7 +171,7 @@ export function ContactChapter() {
           </motion.a>
 
           <motion.a
-            href="https://linkedin.com/company/blackstudio-id"
+            href="https://www.linkedin.com/in/blackstudio-id/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 transition-all duration-300"
@@ -302,7 +250,6 @@ export function ContactChapter() {
           </div>
         </div>
       </div>
-
     </motion.section>
   );
 }
