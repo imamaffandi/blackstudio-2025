@@ -41,9 +41,9 @@ export function Header({ onNavigate, currentChapter }: HeaderProps) {
         {/* Logo */}
         <button
           onClick={handleLogoClick}
-          className="text-white font-bold text-lg md:text-lg text-xs tracking-wider hover:text-white/90 transition-colors duration-300"
+          className="text-white font-bold text-xs md:text-lg tracking-wider hover:text-white/90 transition-colors duration-300"
         >
-          BLACKSTUDIO.ID
+         <img className="w-56 object-contain" src="/black.webp" alt="" />
         </button>
         
         {/* Mobile: Current Section Name */}

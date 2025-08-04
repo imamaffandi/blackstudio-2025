@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, Trophy, Star, Target, Video, Camera } from "lucide-react";
+import {brand} from "../../assets/brands";
+
 import { useState, useEffect } from "react";
 
 const stats = [
@@ -80,12 +82,12 @@ function CounterComponent({ targetNumber, suffix = "", duration = 2000, inView }
 }
 
 // Create array of 20 placeholder client logos (2 rows x 10 columns)
-const clientLogos = Array.from({ length: 20 }, (_, index) => ({
-  id: index + 1,
-  name: `Client ${index + 1}`,
-  // Using placeholder squares for now - can be replaced with actual logos
-  logo: `https://via.placeholder.com/80x80/ffffff/cccccc?text=${index + 1}`
-}));
+// const clientLogos = Array.from({ length: 20 }, (_, index) => ({
+//   id: index + 1,
+//   name: `Client ${index + 1}`,
+//   // Using placeholder squares for now - can be replaced with actual logos
+//   logo: `https://via.placeholder.com/80x80/ffffff/cccccc?text=${index + 1}`
+// }));
 
 export function ClientsChapter() {
   const [statsInView, setStatsInView] = useState(false);
@@ -167,9 +169,9 @@ export function ClientsChapter() {
         {/* Client Logos Grid */}
         <div className="w-full">
           <div className="grid grid-cols-5 md:grid-cols-10 gap-2 max-w-4xl mx-auto">
-            {clientLogos.map((client, index) => (
+            {brand.map((client, index) => (
               <motion.div
-                key={client.id}
+                key={index}
                 className="aspect-square bg-white/2 rounded-lg flex items-center justify-center hover:bg-white/15 transition-colors duration-300 cursor-pointer border border-white/5"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -178,33 +180,16 @@ export function ClientsChapter() {
                 viewport={{ once: false }}
                 whileHover={{ scale: 1.05 }}
               >
-                {/* Different flat icons for variety - simulating logo placeholders */}
-                {index === 0 && <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 1 && <Star className="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" />}
-                {index === 2 && <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 3 && <Trophy className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 4 && <Video className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 5 && <Camera className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 6 && <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 7 && <Star className="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" />}
-                {index === 8 && <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 9 && <Trophy className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 10 && <Video className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 11 && <Camera className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 12 && <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 13 && <Star className="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" />}
-                {index === 14 && <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 15 && <Trophy className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 16 && <Video className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 17 && <Camera className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 18 && <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />}
-                {index === 19 && <Star className="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" />}
+                <img 
+                  src={client.logo} 
+                  alt={client.name} 
+                  className="w-20 h-20 object-contain p-1`"
+                />
               </motion.div>
             ))}
           </div>
         </div>
       </div>
-
     </motion.section>
   );
 }
