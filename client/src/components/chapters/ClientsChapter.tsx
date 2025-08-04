@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Trophy, Star, Target, Video, Camera } from "lucide-react";
-import {brand} from "../../assets/brands";
+import { brand } from "../../assets/brands";
 
 import { useState, useEffect } from "react";
 
@@ -10,35 +10,40 @@ const stats = [
     number: 45,
     suffix: "+",
     label: "Digital Campaigns",
-    color: "from-orange-400 to-pink-500"
+    color: "from-orange-400 to-pink-500",
   },
   {
     icon: Video,
-    number: 75,
+    number: 15,
     suffix: "+",
     label: "Corporate Films",
-    color: "from-purple-500 to-blue-500"
+    color: "from-purple-500 to-blue-500",
   },
   {
     icon: Camera,
-    number: 120,
+    number: 720,
     suffix: "+",
     label: "Event Coverage",
-    color: "from-green-400 to-teal-500"
+    color: "from-green-400 to-teal-500",
   },
   {
     icon: Trophy,
     number: 90,
     suffix: "+",
     label: "Brand Identities",
-    color: "from-yellow-400 to-orange-500"
-  }
+    color: "from-yellow-400 to-orange-500",
+  },
 ];
 
 // Counter component with counting animation
-function CounterComponent({ targetNumber, suffix = "", duration = 2000, inView }: { 
-  targetNumber: number; 
-  suffix?: string; 
+function CounterComponent({
+  targetNumber,
+  suffix = "",
+  duration = 2000,
+  inView,
+}: {
+  targetNumber: number;
+  suffix?: string;
   duration?: number;
   inView: boolean;
 }) {
@@ -57,11 +62,11 @@ function CounterComponent({ targetNumber, suffix = "", duration = 2000, inView }
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing function for smooth animation
       const easeOutCubic = 1 - Math.pow(1 - progress, 3);
       const currentCount = Math.floor(easeOutCubic * targetNumber);
-      
+
       setCount(currentCount);
 
       if (progress < 1) {
@@ -78,7 +83,12 @@ function CounterComponent({ targetNumber, suffix = "", duration = 2000, inView }
     };
   }, [targetNumber, duration, inView]);
 
-  return <span>{count}{suffix}</span>;
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
 }
 
 // Create array of 20 placeholder client logos (2 rows x 10 columns)
@@ -93,9 +103,9 @@ export function ClientsChapter() {
   const [statsInView, setStatsInView] = useState(false);
 
   return (
-    <motion.section 
-      className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-b from-slate-700 via-purple-900/20 to-slate-700" 
-      style={{ aspectRatio: '16/9' }}
+    <motion.section
+      className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-b from-slate-700 via-purple-900/20 to-slate-700"
+      style={{ aspectRatio: "16/9" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -103,7 +113,7 @@ export function ClientsChapter() {
       <div className="max-w-7xl mobile-container px-4 s25:px-6 md:px-8 w-full h-full flex flex-col justify-center pt-12 s25:pt-16 md:pt-20 pb-6 s25:pb-8 md:py-16 short-screen-container short-screen-center">
         {/* Header - Area Kuning */}
         <div className="text-center mb-12 md:mb-16 short-screen-header">
-          <motion.h2 
+          <motion.h2
             className="mobile-text-2xl s25:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 s25:mb-4 leading-tight short-screen-title"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -116,8 +126,8 @@ export function ClientsChapter() {
               AMAZING CLIENTS
             </span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="mobile-text-base s25:text-base text-gray-300 max-w-2xl mx-auto font-light short-screen-text short-screen-spacing"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -130,7 +140,7 @@ export function ClientsChapter() {
         </div>
 
         {/* Stats - Area Merah */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-4 gap-4 md:gap-8 mb-10 md:mb-16 max-w-4xl mx-auto short-screen-stats"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -149,19 +159,23 @@ export function ClientsChapter() {
               viewport={{ once: false }}
             >
               <div className="mb-2 md:mb-3 flex justify-center">
-                <div className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r ${stat.color} rounded-xl md:rounded-2xl flex items-center justify-center`}>
+                <div
+                  className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r ${stat.color} rounded-xl md:rounded-2xl flex items-center justify-center`}
+                >
                   <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
               </div>
               <div className="text-lg md:text-3xl font-bold text-white mb-1 md:mb-2">
-                <CounterComponent 
-                  targetNumber={stat.number} 
+                <CounterComponent
+                  targetNumber={stat.number}
                   suffix={stat.suffix}
-                  duration={2000 + (index * 200)}
+                  duration={2000 + index * 200}
                   inView={statsInView}
                 />
               </div>
-              <div className="text-xs md:text-sm text-gray-300 font-light">{stat.label}</div>
+              <div className="text-xs md:text-sm text-gray-300 font-light">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -180,10 +194,10 @@ export function ClientsChapter() {
                 viewport={{ once: false }}
                 whileHover={{ scale: 1.05 }}
               >
-                <img 
-                  src={client.logo} 
-                  alt={client.name} 
-                  className="w-20 h-20 object-contain p-1`"
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="w-20 h-20 object-contain p-1.5"
                 />
               </motion.div>
             ))}

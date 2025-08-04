@@ -4,43 +4,43 @@ import { X, Play } from "lucide-react";
 
 const portfolioItems = [
   {
-    title: "COMPANY PROFILE PT MAKMUR BERKAH AMANDA",
-    category: "Video Production",
+    title: "COMPRO PT MAKMUR BERKAH AMANDA",
+    category: "Video Production | Company Profile",
     videoId: "lnMqEmce-wc",
   },
   {
-    title: "COMPANY PROFILE ADMEDIKA",
-    category: "Video Production",
+    title: "COMPRO ADMEDIKA",
+    category: "Video Production | Company Profile",
     videoId: "4yzYw9hmZ9Y",
   },
   {
     title: "TUTORIAL QRIS TAP",
-    category: "Video Production",
+    category: "Video Production | Digital Ads",
     videoId: "_q1tDspTp_M",
   },
   {
     title: "Digital Ads Book Cabin Call Center",
-    category: "Video Production",
+    category: "Video Production | Digital Ads",
     videoId: "IWDNJrSd0Yo",
   },
   {
     title: "PT. Garuda Yamato Steel (GYS)",
-    category: "Video Production",
+    category: "Motion Graphic | Company Profile",
     videoId: "IAG684g8Tv0",
   },
   {
-    title: "DOKUMENTER BISNIS PARIVARTANA RASA",
-    category: "Video Production",
+    title: "PARIVARTANA RASA",
+    category: "Event Documentation | Documentary Film",
     videoId: "2dRLw5zRaTI",
   },
   {
-    title: "PIS VALUES DAY 2024",
-    category: "Video Documentary",
-    videoId: "b1aJPUzpBgQ",
+    title: "GRAND LAUNCHING PME BILATERAL",
+    category: "Motion Graphic | Event Documentation",
+    videoId: "6T-_9gsyFb8",
   },
   {
     title: "Kemakmuran Semesta - Film Dokumenter 15 Tahun Bantengan Nuswantara",
-    category: "Video Production",
+    category: "Event Documentation | Documentary Film",
     videoId: "PnHfKOg3fI0",
   },
 ];
@@ -115,10 +115,10 @@ export function PortfolioChapter() {
                 {/* Hover Overlay with View Project */}
                 <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center">
-                    <Play className="w-12 h-12 text-white mb-2 mx-auto" />
                     <span className="text-white font-semibold text-lg">
                       View Project
                     </span>
+                    <Play className="w-12 h-12 text-white mb-2 mx-auto" />
                   </div>
                 </div>
               </div>

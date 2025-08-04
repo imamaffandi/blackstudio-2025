@@ -16,7 +16,7 @@ const services = [
     name: "Videography",
     icon: Video,
     description:
-      "Full-scale video production—from scripting and filming to post-production. Perfect for corporate events, social content, promos, and more",
+      "Full-scale video production—from scripting and filming to post-production.",
     iconGradient: "bg-gradient-to-br from-blue-500 to-purple-600",
     hoverGradient:
       "hover:bg-gradient-to-br hover:from-blue-900/30 hover:to-purple-800/20",
